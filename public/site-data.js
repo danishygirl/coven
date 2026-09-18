@@ -89,6 +89,32 @@ window.COVEN_CONTENT = {
       traits: ["Regeneração", "Influência", "Sentidos ampliados"],
       secret: "Procura uma das Sete Maravilhas por razões que se recusam a explicar."
     }
+     {
+      id: "finalgirl",
+      name: "Mississipi Sawyer",
+      role: "Bruxa • Herdeira contestada",
+      faction: "Casa Vesper",
+      xp: 1260,
+      status: "ATIVA",
+      image: "assets/portrait-selene.png",
+      quote: "She's my sister and she's no bitch, but I am.",
+      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
+      traits: ["Telecinese", "Pirocinese", "Pressentimento", "Concilium"],
+      secret: "É cantora."
+    }
+   {
+      id: "finalgirl",
+      name: "Mississipi Sawyer",
+      role: "Bruxa • Herdeira contestada",
+      faction: "Casa Vesper",
+      xp: 1260,
+      status: "ATIVA",
+      image: "assets/portrait-selene.png",
+      quote: "She's my sister and she's no bitch, but I am.",
+      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
+      traits: ["Telecinese", "Pirocinese", "Pressentimento", "Concilium"],
+      secret: "É cantora."
+    }
   ],
 
   challenges: [
