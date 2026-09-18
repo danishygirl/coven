@@ -37,6 +37,7 @@ window.COVEN_CONTENT = {
       traits: ["Telecinese", "Pirocinese", "Pressentimento", "Concilium"],
       secret: "É cantora."
     },
+    
     {
       id: "dorian",
       name: "Dorian Blackthorn",
@@ -50,6 +51,7 @@ window.COVEN_CONTENT = {
       traits: ["Concilium", "Transmutação", "Rituais"],
       secret: "Mantém encontros secretos com uma sociedade de ocultistas civis."
     },
+    
     {
       id: "mara",
       name: "Mara Baptiste",
@@ -63,6 +65,7 @@ window.COVEN_CONTENT = {
       traits: ["Vitalum Vitalis", "Necromancia", "Vínculos espirituais"],
       secret: "Sabe o nome verdadeiro da entidade que protege o Coven."
     },
+    
     {
       id: "naomi",
       name: "Naomi Reed",
@@ -76,6 +79,7 @@ window.COVEN_CONTENT = {
       traits: ["Investigação", "Persuasão", "Arquivos"],
       secret: "Carrega sem saber um objeto capaz de bloquear influência mental."
   },
+    
     { 
       id: "lucien",
       name: "Lucien Armand",
