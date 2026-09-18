@@ -1,1 +1,573 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>COVEN — Bestiário</title>
+  <style>
+    :root{
+      --ink:#07090c;
+      --panel:rgba(8,10,13,.86);
+      --line:#9c927f;
+      --line-soft:rgba(190,178,154,.28);
+      --text:#e7e0d3;
+      --muted:#a59d91;
+      --accent:#cbb88f;
+      --shadow:rgba(0,0,0,.72);
+    }
 
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      background:
+        linear-gradient(rgba(2,4,7,.72),rgba(2,4,7,.92)),
+        url("assets/coven-night-mansion.png") center/cover fixed no-repeat;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(100,125,150,.12), transparent 35%),
+        linear-gradient(90deg, rgba(0,0,0,.65), transparent 18%, transparent 82%, rgba(0,0,0,.65));
+      z-index:0;
+    }
+
+    .shell{
+      position:relative;
+      z-index:1;
+      width:min(1500px,94vw);
+      margin:0 auto;
+      padding:28px 0 60px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+      border-bottom:1px solid var(--line-soft);
+      padding:6px 4px 20px;
+      margin-bottom:34px;
+    }
+
+    .brand{
+      color:var(--text);
+      text-decoration:none;
+      font-size:clamp(38px,5vw,72px);
+      letter-spacing:.16em;
+      line-height:.9;
+      text-shadow:0 8px 28px #000;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:18px;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .nav a{
+      color:#c9c0b2;
+      text-decoration:none;
+      padding:8px 0;
+      border-bottom:1px solid transparent;
+      transition:.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active{
+      color:#fff;
+      border-bottom-color:var(--accent);
+    }
+
+    .page-title{
+      margin:0 0 28px;
+      font-weight:400;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:clamp(34px,5vw,74px);
+    }
+
+    .bestiary-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .beast-card{
+      position:relative;
+      min-height:420px;
+      overflow:hidden;
+      border:1px solid rgba(214,201,173,.42);
+      outline:1px solid rgba(214,201,173,.09);
+      outline-offset:-8px;
+      background:#090b0e;
+      box-shadow:0 18px 42px var(--shadow);
+      cursor:pointer;
+      isolation:isolate;
+    }
+
+    .beast-card::before,
+    .beast-card::after{
+      content:"";
+      position:absolute;
+      width:28px;
+      height:28px;
+      z-index:4;
+      pointer-events:none;
+    }
+
+    .beast-card::before{
+      top:10px;
+      left:10px;
+      border-top:1px solid var(--accent);
+      border-left:1px solid var(--accent);
+    }
+
+    .beast-card::after{
+      right:10px;
+      bottom:10px;
+      border-right:1px solid var(--accent);
+      border-bottom:1px solid var(--accent);
+    }
+
+    .beast-card img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:saturate(.55) brightness(.62) contrast(1.14);
+      transform:scale(1.02);
+      transition:transform .45s ease, filter .45s ease;
+      z-index:-2;
+    }
+
+    .beast-card .shade{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(to top, rgba(3,5,7,.98) 5%, rgba(3,5,7,.72) 32%, rgba(3,5,7,.12) 65%),
+        linear-gradient(90deg, rgba(0,0,0,.25), transparent 50%, rgba(0,0,0,.25));
+      z-index:-1;
+    }
+
+    .beast-card .card-label{
+      position:absolute;
+      left:20px;
+      right:20px;
+      bottom:18px;
+      z-index:2;
+      transition:transform .35s ease, opacity .25s ease;
+    }
+
+    .beast-card .name{
+      margin:0;
+      font-size:22px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-weight:400;
+    }
+
+    .beast-card .type{
+      display:block;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .hover-info{
+      position:absolute;
+      inset:auto 0 0;
+      z-index:3;
+      padding:22px 22px 24px;
+      background:
+        linear-gradient(to top, rgba(4,6,8,.99), rgba(5,7,10,.96) 76%, rgba(5,7,10,.08));
+      transform:translateY(calc(100% - 104px));
+      transition:transform .38s cubic-bezier(.2,.8,.2,1);
+      min-height:78%;
+    }
+
+    .hover-info .name{
+      margin-bottom:6px;
+    }
+
+    .hover-info .type{
+      margin-bottom:18px;
+    }
+
+    .stat{
+      display:grid;
+      grid-template-columns:74px 1fr 30px;
+      gap:10px;
+      align-items:center;
+      margin:10px 0;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    .bar{
+      height:5px;
+      background:rgba(255,255,255,.12);
+      overflow:hidden;
+    }
+
+    .bar > span{
+      display:block;
+      height:100%;
+      width:var(--value);
+      background:linear-gradient(90deg,#8f8269,#dfcfaa);
+      box-shadow:0 0 12px rgba(218,202,166,.28);
+    }
+
+    .description{
+      margin:18px 0 0;
+      color:#d5cec1;
+      font-size:14px;
+      line-height:1.62;
+      border-top:1px solid var(--line-soft);
+      padding-top:16px;
+    }
+
+    .beast-card:hover img,
+    .beast-card.open img{
+      transform:scale(1.08);
+      filter:saturate(.62) brightness(.48) contrast(1.18);
+    }
+
+    .beast-card:hover .hover-info,
+    .beast-card.open .hover-info{
+      transform:translateY(0);
+    }
+
+    .beast-card:hover .card-label,
+    .beast-card.open .card-label{
+      opacity:0;
+      transform:translateY(12px);
+    }
+
+    .hint{
+      margin:0 0 18px;
+      color:#989185;
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    @media (max-width:1100px){
+      .bestiary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .topbar{align-items:flex-start;flex-direction:column}
+      .nav{justify-content:flex-start}
+    }
+
+    @media (max-width:650px){
+      .shell{width:min(94vw,560px)}
+      .bestiary-grid{grid-template-columns:1fr}
+      .beast-card{min-height:520px}
+      .nav{gap:12px;font-size:10px}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html#home">COVEN</a>
+      <nav class="nav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#personagens">Personagens</a>
+        <a href="index.html#desafios">Desafios</a>
+        <a href="index.html#mapa">Mapa</a>
+        <a href="index.html#episodios">Episódios</a>
+        <a href="index.html#sete-maravilhas">Sete Maravilhas</a>
+        <a class="active" href="bestiario.html">Bestiário</a>
+      </nav>
+    </header>
+
+    <h1 class="page-title">Bestiário</h1>
+    <p class="hint">Passe o mouse sobre uma criatura. No celular, toque na carta.</p>
+
+    <section class="bestiary-grid">
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-mae-pantano.jpg" alt="A Mãe do Pântano">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">A Mãe do Pântano</h2>
+          <span class="type">Espírito</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">A Mãe do Pântano</h2>
+          <span class="type">Espírito</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:82%"></span></div>
+            <b>82</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:76%"></span></div>
+            <b>76</b>
+          </div>
+
+          <p class="description">
+            Uma entidade ancestral ligada às águas estagnadas. Invade lembranças,
+            distorce vozes conhecidas e arrasta suas vítimas para regiões onde a
+            fronteira entre matéria e espírito se torna instável.
+          </p>
+        </div>
+      </article>
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-bode-negro.jpg" alt="O Bode Negro">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">O Bode Negro</h2>
+          <span class="type">Entidade Infernal</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">O Bode Negro</h2>
+          <span class="type">Entidade Infernal</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:91%"></span></div>
+            <b>91</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:64%"></span></div>
+            <b>64</b>
+          </div>
+
+          <p class="description">
+            Surge em rituais interrompidos e pactos mal encerrados. Sua presença
+            provoca paranoia, alucinações e impulsos violentos entre aqueles que
+            permanecem próximos por tempo demais.
+          </p>
+        </div>
+      </article>
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-noiva-vazia.jpg" alt="A Noiva Vazia">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">A Noiva Vazia</h2>
+          <span class="type">Aparição</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">A Noiva Vazia</h2>
+          <span class="type">Aparição</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:70%"></span></div>
+            <b>70</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:88%"></span></div>
+            <b>88</b>
+          </div>
+
+          <p class="description">
+            Um fantasma que assume a forma de alguém perdido. Quanto mais a vítima
+            tenta reconhecê-la, mais a criatura copia memórias, gestos e segredos
+            até substituir completamente a lembrança original.
+          </p>
+        </div>
+      </article>
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-cervo-cinzas.jpg" alt="O Cervo de Cinzas">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">O Cervo de Cinzas</h2>
+          <span class="type">Fera Arcana</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">O Cervo de Cinzas</h2>
+          <span class="type">Fera Arcana</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:77%"></span></div>
+            <b>77</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:71%"></span></div>
+            <b>71</b>
+          </div>
+
+          <p class="description">
+            Uma criatura territorial encontrada perto de lugares onde magia antiga
+            foi derramada. Seus chifres carregam resíduos de feitiços e podem
+            romper proteções mágicas com impacto direto.
+          </p>
+        </div>
+      </article>
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-mensageiros.jpg" alt="Os Mensageiros">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">Os Mensageiros</h2>
+          <span class="type">Familiares Corrompidos</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">Os Mensageiros</h2>
+          <span class="type">Familiares Corrompidos</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:45%"></span></div>
+            <b>45</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:52%"></span></div>
+            <b>52</b>
+          </div>
+
+          <p class="description">
+            Corvos ligados a pactos de observação. Sozinhos são frágeis, mas em
+            bandos compartilham visão, rastreiam magia recente e carregam mensagens
+            para entidades que permanecem fora do alcance humano.
+          </p>
+        </div>
+      </article>
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-devorados.jpg" alt="Os Devorados">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">Os Devorados</h2>
+          <span class="type">Reanimados</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">Os Devorados</h2>
+          <span class="type">Reanimados</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:84%"></span></div>
+            <b>84</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:58%"></span></div>
+            <b>58</b>
+          </div>
+
+          <p class="description">
+            Corpos retomados por uma fome que não lhes pertence. Não sentem dor e
+            atacam em explosões rápidas. A destruição do vínculo mágico que os
+            anima é mais eficaz que ferimentos comuns.
+          </p>
+        </div>
+      </article>
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-freira-sem-rosto.jpg" alt="A Freira Sem Rosto">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">A Freira Sem Rosto</h2>
+          <span class="type">Espectro</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">A Freira Sem Rosto</h2>
+          <span class="type">Espectro</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:73%"></span></div>
+            <b>73</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:93%"></span></div>
+            <b>93</b>
+          </div>
+
+          <p class="description">
+            Um espírito quase impossível de ferir por meios físicos. Apaga sons ao
+            redor, enfraquece encantamentos falados e se aproxima sempre que alguém
+            tenta descobrir a identidade que existia sob o véu.
+          </p>
+        </div>
+      </article>
+
+      <article class="beast-card" tabindex="0">
+        <img src="assets/bestiary-enraizados.jpg" alt="Os Enraizados">
+        <div class="shade"></div>
+        <div class="card-label">
+          <h2 class="name">Os Enraizados</h2>
+          <span class="type">Híbridos Vegetais</span>
+        </div>
+        <div class="hover-info">
+          <h2 class="name">Os Enraizados</h2>
+          <span class="type">Híbridos Vegetais</span>
+
+          <div class="stat">
+            <span>Ataque</span>
+            <div class="bar"><span style="--value:69%"></span></div>
+            <b>69</b>
+          </div>
+
+          <div class="stat">
+            <span>Defesa</span>
+            <div class="bar"><span style="--value:86%"></span></div>
+            <b>86</b>
+          </div>
+
+          <p class="description">
+            Antigos humanos fundidos à vegetação por magia ritual. Recuperam-se
+            quando em contato com solo vivo e conseguem prender vítimas com raízes
+            que reagem a medo, movimento e uso de magia.
+          </p>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    // Em telas sem hover (celular/tablet), tocar abre/fecha a ficha.
+    document.querySelectorAll(".beast-card").forEach(card => {
+      card.addEventListener("click", () => {
+        if (window.matchMedia("(hover: none)").matches) {
+          card.classList.toggle("open");
+        }
+      });
+
+      card.addEventListener("keydown", e => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          card.classList.toggle("open");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
