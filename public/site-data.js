@@ -75,8 +75,8 @@ window.COVEN_CONTENT = {
       bio: "Após um desaparecimento ligado a uma família tradicional de New Orleans, Naomi começa a mapear incidentes que a polícia prefere tratar como coincidência.",
       traits: ["Investigação", "Persuasão", "Arquivos"],
       secret: "Carrega sem saber um objeto capaz de bloquear influência mental."
-    
-    {
+  },
+    { 
       id: "lucien",
       name: "Lucien Armand",
       role: "Criatura mística • Diplomata noturno",
