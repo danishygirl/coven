@@ -15,7 +15,7 @@ window.COVEN_CONTENT = {
     body: "Em uma Nova Orleans onde linhagens antigas voltam a disputar território, jovens bruxas e bruxos descobrem que a guerra pelo próximo legado não envolve apenas o Coven. Criaturas místicas, sociedades rivais e civis comuns são puxados para uma trama em que cada pacto deixa uma cicatriz.",
     primaryCta: "Abrir crônica",
     secondaryCta: "Ver personagens",
-    notice: "Conteúdo centralizado em site-data.js — altere títulos, textos, XP, personagens, episódios e cartas direto pelo GitHub.",
+    notice: "A supernatural-Survival Role-Playing Game",
     quickLinks: [
       { label: "Dossiê atual", value: "Episódio 01 — O Sino da Meia-Noite", route: "episodios" },
       { label: "Local em foco", value: "Maison Vesper", route: "mapa" },
@@ -25,19 +25,18 @@ window.COVEN_CONTENT = {
 
   characters: [
     {
-      id: "finalgirl",
+      id: "selene",
       name: "Mississipi Sawyer",
       role: "Bruxa • Herdeira contestada",
       faction: "Casa Vesper",
       xp: 1260,
       status: "ATIVA",
       image: "assets/portrait-selene.png",
-      quote: "She's my sister and she's no bitch, but I am.",
+      quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
       bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
-      traits: ["Telecinese", "Pirocinese", "Pressentimento", "Concilium"],
-      secret: "É cantora."
+      traits: ["Telecinese", "Pirocinese", "Pressentimento", "Descensum"],
+      secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
     },
-    
     {
       id: "dorian",
       name: "Dorian Blackthorn",
@@ -51,7 +50,6 @@ window.COVEN_CONTENT = {
       traits: ["Concilium", "Transmutação", "Rituais"],
       secret: "Mantém encontros secretos com uma sociedade de ocultistas civis."
     },
-    
     {
       id: "mara",
       name: "Mara Baptiste",
@@ -65,7 +63,6 @@ window.COVEN_CONTENT = {
       traits: ["Vitalum Vitalis", "Necromancia", "Vínculos espirituais"],
       secret: "Sabe o nome verdadeiro da entidade que protege o Coven."
     },
-    
     {
       id: "naomi",
       name: "Naomi Reed",
@@ -78,9 +75,8 @@ window.COVEN_CONTENT = {
       bio: "Após um desaparecimento ligado a uma família tradicional de New Orleans, Naomi começa a mapear incidentes que a polícia prefere tratar como coincidência.",
       traits: ["Investigação", "Persuasão", "Arquivos"],
       secret: "Carrega sem saber um objeto capaz de bloquear influência mental."
-  },
-    
-    { 
+    },
+    {
       id: "lucien",
       name: "Lucien Armand",
       role: "Criatura mística • Diplomata noturno",
@@ -92,6 +88,47 @@ window.COVEN_CONTENT = {
       bio: "Elegante e indecifrável, Lucien representa uma antiga corte de criaturas noturnas. Sua presença no Coven sugere que a guerra arcana ultrapassará rapidamente as paredes da academia.",
       traits: ["Regeneração", "Influência", "Sentidos ampliados"],
       secret: "Procura uma das Sete Maravilhas por razões que se recusam a explicar."
+    },
+     {
+      id: "finalgirl",
+      name: "Mississipi Sawyer",
+      role: "Bruxa • Herdeira contestada",
+      faction: "Casa Vesper",
+      xp: 1260,
+      status: "ATIVA",
+      image: "assets/portrait-selene.png",
+      quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
+      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
+      traits: ["Telecinese", "Pirocinese", "Pressentimento"],
+      secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
+    },
+     {
+      id: "selene",
+      name: "Mississipi Sawyer",
+      role: "Bruxa • Herdeira contestada",
+      faction: "Casa Vesper",
+      xp: 1260,
+      status: "ATIVA",
+      image: "assets/portrait-selene.png",
+      quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
+      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
+      traits: ["Telecinese", "Pirocinese", "Pressentimento"],
+      secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
+    },
+     {
+      id: "selene",
+      name: "Mississipi Sawyer",
+      role: "Bruxa • Herdeira contestada",
+      faction: "Casa Vesper",
+      xp: 1260,
+      status: "ATIVA",
+      image: "assets/portrait-selene.png",
+      quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
+      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
+      traits: ["Telecinese", "Pirocinese", "Pressentimento"],
+      secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
+    },
+    
   ],
 
   challenges: [
@@ -196,6 +233,114 @@ window.COVEN_CONTENT = {
       status: "BLOQUEADO",
       summary: "Uma festa mascarada une três facções rivais. O acordo de paz dura até a primeira taça cair no chão.",
       transcript: "Conteúdo ainda selado."
+    }
+  ],
+
+
+  bestiary: [
+    {
+      id: "mae-pantano",
+      name: "A Mãe do Pântano",
+      species: "Espírito",
+      image: "assets/bestiary-mae-pantano.jpg",
+      description: "Uma entidade ancestral que habita águas escuras e esquecidas. Dizem que é feita de memórias afogadas e que sussurra os nomes daqueles que o mundo tentou apagar. Sua presença anuncia mudanças, cobranças e pactos antigos.",
+      attack: "Afogamento Mental",
+      attackText: "Inunda a mente da vítima com visões e lembranças que não lhe pertencem, causando confusão e desespero.",
+      defense: "Forma Líquida",
+      defenseText: "Seu corpo se dissolve nas águas, tornando ataques físicos quase ineficazes.",
+      power: "Chamado das Profundezas",
+      powerText: "Manipula as águas do pântano, aprisiona inimigos e revela segredos enterrados."
+    },
+    {
+      id: "bode-negro",
+      name: "O Bode Negro",
+      species: "Demônio",
+      image: "assets/bestiary-bode-negro.jpg",
+      description: "Uma presença associada a barganhas, rituais incompletos e promessas feitas em desespero. Costuma surgir onde alguém tentou obter poder sem aceitar o preço exigido.",
+      attack: "Investida Profana",
+      attackText: "Concentra força sobrenatural nos chifres e rompe proteções físicas ou círculos frágeis.",
+      defense: "Pele de Carvão",
+      defenseText: "Resiste a fogo comum, cortes e impactos como se o corpo fosse feito de matéria queimada.",
+      power: "Marca do Pacto",
+      powerText: "Reconhece juramentos quebrados e enfraquece quem tenta fugir de um acordo selado."
+    },
+    {
+      id: "noiva-vazia",
+      name: "A Noiva Vazia",
+      species: "Aparição",
+      image: "assets/bestiary-noiva-vazia.jpg",
+      description: "Uma figura silenciosa coberta por véus escuros. É vista antes de desaparecimentos e costuma permanecer imóvel diante de portas, espelhos ou corredores que levam a lugares errados.",
+      attack: "Silêncio Sepulcral",
+      attackText: "Abafa sons ao redor da vítima e interrompe conjurações que dependem da voz.",
+      defense: "Corpo de Véu",
+      defenseText: "Torna-se parcialmente incorpórea e atravessa obstáculos durante curtos intervalos.",
+      power: "Convite Irrecusável",
+      powerText: "Atrai uma pessoa marcada para seguir seus passos até um local escolhido pela aparição."
+    },
+    {
+      id: "cervo-cinzas",
+      name: "O Cervo de Cinzas",
+      species: "Guardião Feérico",
+      image: "assets/bestiary-cervo-cinzas.jpg",
+      description: "Um guardião antigo das fronteiras entre o mundo humano e territórios feéricos. Seus galhos parecem carregar cinzas de incêndios que aconteceram séculos atrás.",
+      attack: "Galhada Espectral",
+      attackText: "Projeta extensões de sua galhada como lâminas de energia sombria.",
+      defense: "Passo entre Árvores",
+      defenseText: "Desaparece entre troncos e sombras e reaparece a curta distância.",
+      power: "Trilha Proibida",
+      powerText: "Dobra caminhos naturais, fazendo perseguidores voltarem ao ponto de partida."
+    },
+    {
+      id: "mensageiros",
+      name: "Os Mensageiros",
+      species: "Augúrio",
+      image: "assets/bestiary-mensageiros.jpg",
+      description: "Corvos que aparecem em número incomum antes de mortes, pactos ou grandes manifestações arcanas. Alguns bruxos acreditam que observam em nome de algo que nunca se mostra.",
+      attack: "Enxame de Bicos",
+      attackText: "Atacam em grupo e confundem a orientação da vítima com movimentos imprevisíveis.",
+      defense: "Dispersão",
+      defenseText: "O bando se separa instantaneamente diante de um golpe direto.",
+      power: "Olhos Emprestados",
+      powerText: "Permitem que uma entidade distante observe um lugar através do bando."
+    },
+    {
+      id: "devorados",
+      name: "Os Devorados",
+      species: "Revenant",
+      image: "assets/bestiary-devorados.jpg",
+      description: "Restos de pessoas consumidas por magia predatória. Mantêm apenas fragmentos de identidade e perseguem energia vital como se tentassem reconstruir aquilo que perderam.",
+      attack: "Mordida de Essência",
+      attackText: "Drena vigor e deixa a vítima exausta mesmo quando o ferimento físico é pequeno.",
+      defense: "Carne Persistente",
+      defenseText: "Continua se movendo após ferimentos que derrubariam um humano.",
+      power: "Fome Herdada",
+      powerText: "Absorve temporariamente traços de habilidades das vítimas que consegue ferir."
+    },
+    {
+      id: "freira-sem-rosto",
+      name: "A Freira Sem Rosto",
+      species: "Assombração",
+      image: "assets/bestiary-freira-sem-rosto.jpg",
+      description: "Uma aparição ligada a instituições abandonadas, dormitórios vazios e lugares onde segredos foram protegidos pela autoridade. Seu véu não esconde um rosto: não existe nada por baixo.",
+      attack: "Confissão Forçada",
+      attackText: "Faz a vítima reviver culpa e medo até perder concentração ou revelar um segredo.",
+      defense: "Ausência",
+      defenseText: "Ataques direcionados ao rosto ou à mente falham porque não encontram identidade individual.",
+      power: "Regra do Claustro",
+      powerText: "Fecha portas, sela corredores e transforma um espaço em território submetido às suas regras."
+    },
+    {
+      id: "enraizados",
+      name: "Os Enraizados",
+      species: "Entidade Vegetal",
+      image: "assets/bestiary-enraizados.jpg",
+      description: "Corpos tomados por raízes e matéria de bosque, encontrados próximos a lugares onde antigos rituais pediram sangue à terra. Não se sabe se são vítimas ou extensões de uma consciência maior.",
+      attack: "Raízes Constritoras",
+      attackText: "Faz raízes romperem o solo para imobilizar pernas, braços e armas.",
+      defense: "Casca Regenerativa",
+      defenseText: "Recupera danos lentamente quando permanece em contato com solo vivo.",
+      power: "Memória da Terra",
+      powerText: "Percebe passos, sangue derramado e magia realizada nas proximidades através do terreno."
     }
   ],
 
