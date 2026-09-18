@@ -31,7 +31,7 @@ window.COVEN_CONTENT = {
       faction: "Casa Vesper",
       xp: 1260,
       status: "ATIVA",
-      image: "assets/portrait-selene.svg",
+      image: "assets/portrait-selene.png",
       quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
       bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
       traits: ["Telecinese", "Pirocinese", "Pressentimento"],
