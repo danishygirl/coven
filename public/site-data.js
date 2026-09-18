@@ -75,7 +75,7 @@ window.COVEN_CONTENT = {
       bio: "Após um desaparecimento ligado a uma família tradicional de New Orleans, Naomi começa a mapear incidentes que a polícia prefere tratar como coincidência.",
       traits: ["Investigação", "Persuasão", "Arquivos"],
       secret: "Carrega sem saber um objeto capaz de bloquear influência mental."
-    },
+    
     {
       id: "lucien",
       name: "Lucien Armand",
@@ -88,7 +88,7 @@ window.COVEN_CONTENT = {
       bio: "Elegante e indecifrável, Lucien representa uma antiga corte de criaturas noturnas. Sua presença no Coven sugere que a guerra arcana ultrapassará rapidamente as paredes da academia.",
       traits: ["Regeneração", "Influência", "Sentidos ampliados"],
       secret: "Procura uma das Sete Maravilhas por razões que se recusam a explicar."
-    }
+    
      {
       id: "finalgirl",
       name: "Mississipi Sawyer",
