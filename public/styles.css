@@ -18,24 +18,44 @@
 
 * { box-sizing: border-box; }
 html { background: var(--bg); color-scheme: dark; }
-.site-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
+/* FUNDO GLOBAL DO COVEN */
 
-  background-image:
+.site-bg {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -1 !important;
+
+  background:
+    linear-gradient(
+      rgba(2, 4, 7, 0.45),
+      rgba(2, 4, 7, 0.72)
+    ),
+    url("/mansion.png")
+    center center / cover no-repeat !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+body {
+  background-color: #05070a !important;
+}
+
+/* Faz a HOME mostrar o mesmo fundo */
+.hero-backdrop {
+  background:
     linear-gradient(
       90deg,
-      rgba(2, 5, 7, 0.78) 0%,
-      rgba(2, 5, 7, 0.42) 40%,
-      rgba(2, 5, 7, 0.25) 65%,
-      rgba(2, 5, 7, 0.68) 100%
+      rgba(2, 5, 7, 0.72),
+      rgba(2, 5, 7, 0.12) 55%,
+      rgba(2, 5, 7, 0.65)
     ),
-    url("assets/0f318dae-28ea-4ba4-adce-731917ba3de3.png");
+    url("/mansion.png")
+    center center / cover no-repeat !important;
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  filter: none !important;
 }
 }
 
