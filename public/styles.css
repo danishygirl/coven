@@ -274,9 +274,59 @@ a:active {
       rgba(2, 5, 7, 0.25) 65%,
       rgba(2, 5, 7, 0.68) 100%
     ),
-    url("assets/0f318dae-28ea-4ba4-adce-731917ba3de3.png");
+    url("assets/mansion.png");
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* ===== FUNDO GLOBAL - CORREÇÃO DEFINITIVA ===== */
+
+.site-bg {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+
+  /* IMPORTANTE: não usar -1 aqui */
+  z-index: 0 !important;
+
+  background-image:
+    linear-gradient(
+      rgba(2, 5, 8, 0.38),
+      rgba(2, 5, 8, 0.68)
+    ),
+    url("assets/mansion.png") !important;
+
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}
+
+/* Conteúdo fica acima da imagem */
+#app {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* HOME deixa o fundo global aparecer */
+.home-view {
+  background: transparent !important;
+}
+
+.hero-backdrop {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 5, 8, 0.62),
+      rgba(2, 5, 8, 0.10) 55%,
+      rgba(2, 5, 8, 0.56)
+    ) !important;
+
+  filter: none !important;
 }
