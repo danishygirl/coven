@@ -5,19 +5,18 @@ window.COVEN_CONTENT = {
     season: "TEMPORADA I",
     city: "New Orleans, 2026",
     xp: 1745,
-    level: 16,
-    profile: "COVEN // CRÔNICA 01"
+    level: 66,
+    profile: "COVEN // MAIN"
   },
 
   home: {
-    eyebrow: "ARQUIVO DA CRÔNICA",
+    eyebrow: "A SUPERNATURAL-HORROR ROLE-PLAYING GAME",
     title: "COVEN",
-    body: "Em uma Nova Orleans onde linhagens antigas voltam a disputar território, jovens bruxas e bruxos descobrem que a guerra pelo próximo legado não envolve apenas o Coven. Criaturas místicas, sociedades rivais e civis comuns são puxados para uma trama em que cada pacto deixa uma cicatriz.",
-    primaryCta: "Abrir crônica",
-    secondaryCta: "Ver personagens",
-    notice: "A supernatural-Survival Role-Playing Game",
+    body: "O surgimento de novos talentos dá início aos temidos testes das Sete Maravilhas, colocando as bruxas da Academia umas contra as outras em uma disputa que pode definir o futuro de todo o Coven. Mas encontrar a próxima Suprema rapidamente deixa de ser o único problema. Algo está mudando nas ruas de New Orleans. Rituais são interrompidos, pessoas desaparecem e acontecimentos aparentemente isolados sugerem que antigas forças voltaram a se movimentar.",
+    primaryCta: "NEW ORLEANS",
+    secondaryCta: "DISCORD",
     quickLinks: [
-      { label: "Dossiê atual", value: "Episódio 01 — O Sino da Meia-Noite", route: "episodios" },
+      { label: "SEASON ONE", value: "Episódio 01 — Welcome to NOLA", route: "episodios" },
       { label: "Local em foco", value: "Maison Vesper", route: "mapa" },
       { label: "Risco arcano", value: "Elevado", route: "desafios" }
     ]
@@ -25,16 +24,16 @@ window.COVEN_CONTENT = {
 
   characters: [
     {
-      id: "selene",
-      name: "Mississipi Sawyer",
+      id: "FINALGIRL",
+      name: "MISSISSIPI SAWYER",
       role: "Bruxa • Herdeira contestada",
-      faction: "Casa Vesper",
-      xp: 1260,
+      faction: "Robichaux Academy",
+      xp: 00,
       status: "ATIVA",
       image: "assets/portrait-selene.png",
       quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
       bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
-      traits: ["Telecinese", "Pirocinese", "Pressentimento", "Descensum"],
+      traits: ["Telecinese", "Pirocinese", "Pressentimento"],
       secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
     },
     {
@@ -88,47 +87,7 @@ window.COVEN_CONTENT = {
       bio: "Elegante e indecifrável, Lucien representa uma antiga corte de criaturas noturnas. Sua presença no Coven sugere que a guerra arcana ultrapassará rapidamente as paredes da academia.",
       traits: ["Regeneração", "Influência", "Sentidos ampliados"],
       secret: "Procura uma das Sete Maravilhas por razões que se recusam a explicar."
-    },
-     {
-      id: "finalgirl",
-      name: "Mississipi Sawyer",
-      role: "Bruxa • Herdeira contestada",
-      faction: "Casa Vesper",
-      xp: 1260,
-      status: "ATIVA",
-      image: "assets/portrait-selene.png",
-      quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
-      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
-      traits: ["Telecinese", "Pirocinese", "Pressentimento"],
-      secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
-    },
-     {
-      id: "selene",
-      name: "Mississipi Sawyer",
-      role: "Bruxa • Herdeira contestada",
-      faction: "Casa Vesper",
-      xp: 1260,
-      status: "ATIVA",
-      image: "assets/portrait-selene.png",
-      quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
-      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
-      traits: ["Telecinese", "Pirocinese", "Pressentimento"],
-      secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
-    },
-     {
-      id: "selene",
-      name: "Mississipi Sawyer",
-      role: "Bruxa • Herdeira contestada",
-      faction: "Casa Vesper",
-      xp: 1260,
-      status: "ATIVA",
-      image: "assets/portrait-selene.png",
-      quote: "O legado não escolhe os dignos. Escolhe os sobreviventes.",
-      bio: "Criada para assumir um lugar que talvez nunca tenha desejado, Selene chega ao Coven carregando o peso de uma linhagem antiga e o rumor de que sua magia desperta fenômenos que ninguém consegue explicar.",
-      traits: ["Telecinese", "Pirocinese", "Pressentimento"],
-      secret: "Possui uma ligação desconhecida com a antiga ala interditada da Maison Vesper."
-    },
-    
+    }
   ],
 
   challenges: [
